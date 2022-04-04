@@ -39,5 +39,4 @@ public class ArrayTask {
         return str1.equals(str2);
     }
 
-
 }
