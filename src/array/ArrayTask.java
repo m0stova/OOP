@@ -4,14 +4,14 @@ public class ArrayTask {
 
     public static void main(String[] args) {
 
-        String word1[] = new String[]{"ab", "c"};
-        String word2[] = new String[]{"a", "bc"};
+        String[] word1 = new String[]{"ab", "c"};
+        String[] word2 = new String[]{"a", "bc"};
 
-        String word3[] = new String[]{"abgf", "c"};
-        String word4[] = new String[]{"afg", "bc"};
+        String[] word3 = new String[]{"abgf", "c"};
+        String[] word4 = new String[]{"afg", "bc"};
 
-        String word5[] = new String[]{"abc", "d", "defg"};
-        String word6[] = new String[]{"abcddefg"};
+        String[] word5 = new String[]{"abc", "d", "defg"};
+        String[] word6 = new String[]{"abcddefg"};
 
 
         ArrayTask arrayComparison1 = new ArrayTask();
@@ -29,11 +29,9 @@ public class ArrayTask {
         String str1 = "";
         String str2 = "";
 
-        for (int i = 0; i < word1.length; i++)
-            str1 += word1[i];
+        for (String s : word1) str1 += s;
 
-        for (int i = 0; i < word2.length; i++)
-            str2 += word2[i];
+        for (String s : word2) str2 += s;
 
         System.out.println();
         System.out.println("Are these 2 arrays equals? - " + str1.equals(str2));
