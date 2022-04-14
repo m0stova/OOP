@@ -3,13 +3,14 @@ package car;
 import java.util.Scanner;
 
 public class Convertible extends Car implements Movable {
+
     private static final int MAX_ALLOWED_SPEED = 200;
     private static final int MIN_PRICE = 1000;
     private static final int MAX_PRICE = 40000000;
     private int price;
-    static Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
-    public Convertible(int price, String country, String colour, int maxSpeed, String fuelType, String transmissionType,
+    public Convertible(int price, String country, String colour, int maxSpeed, FuelType fuelType, String transmissionType,
                        int seatingCapacity) {
         super(country, colour, maxSpeed, fuelType, transmissionType, seatingCapacity);
         this.price = price;
@@ -39,7 +40,7 @@ public class Convertible extends Car implements Movable {
     }
 
     @Override
-    public String getFuelType() {
+    public FuelType getFuelType() {
         return super.getFuelType();
     }
 
@@ -63,5 +64,36 @@ public class Convertible extends Car implements Movable {
     public int getPrice() {
         return this.price;
     }
+
+    @Override
+    public void setFuelType(FuelType fuelTypeChange) {
+        this.fuelTypeVariation = fuelTypeChange;
+        super.fuelType = fuelTypeChange;
+        final String ANSWER = "The fuel type is: ";
+        switch (fuelTypeVariation) {
+            case DIESEL -> {
+                System.out.println( ANSWER + "diesel");
+                break;
+            }
+            case BIO_DIESEL -> {
+                System.out.println(ANSWER + "bio-diesel");
+                break;
+            }
+            case GASOLINE -> {
+                System.out.println( ANSWER + "gasoline");
+                break;
+            }
+            case ETHANOL -> {
+                System.out.println(ANSWER + "ethanol");
+                break;
+            }
+            default -> {
+                System.out.println("Wrong fuel type!");
+                break;
+            }
+        }
+
+    }
+
 }
 

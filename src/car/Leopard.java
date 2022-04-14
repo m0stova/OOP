@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Leopard implements Movable {
     private static final int MAX_ALLOWED_SPEED = 70;
     private int maxSpeed;
-    static Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     public Leopard (String name, int age, String colour, int maxSpeed){
     }

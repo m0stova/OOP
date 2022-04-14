@@ -6,9 +6,9 @@ public class Antique extends Car implements Movable{
     private static final int MAX_ALLOWED_SPEED = 110;
     private int year;
     private String date;
-    static Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
-    public Antique(String date, int year, String country, String colour, int maxSpeed, String fuelType,
+    public Antique(String date, int year, String country, String colour, int maxSpeed, FuelType fuelType,
                    String transmissionType, int seatingCapacity) {
         super(country, colour, maxSpeed, fuelType, transmissionType, seatingCapacity);
         this.year = year;
@@ -48,6 +48,37 @@ public class Antique extends Car implements Movable{
             this.maxSpeed = speedChange;
         }
     }
+
+    @Override
+    public void setFuelType(FuelType fuelTypeChange) {
+        this.fuelTypeVariation = fuelTypeChange;
+        super.fuelType = fuelTypeChange;
+        final String ANSWER = "The fuel type is: ";
+        switch (fuelTypeVariation) {
+            case DIESEL -> {
+                System.out.println( ANSWER + "diesel");
+                break;
+            }
+            case BIO_DIESEL -> {
+                System.out.println(ANSWER + "bio-diesel");
+                break;
+            }
+            case GASOLINE -> {
+                System.out.println( ANSWER + "gasoline");
+                break;
+            }
+            case ETHANOL -> {
+                System.out.println(ANSWER + "ethanol");
+                break;
+            }
+            default -> {
+                System.out.println("Wrong fuel type!");
+                break;
+            }
+        }
+
+    }
+
 
     public String whenWasThisMade(int year, String date) {
         this.year = year;

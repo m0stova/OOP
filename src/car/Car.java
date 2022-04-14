@@ -6,12 +6,13 @@ public abstract class Car {
     protected int maxSpeed;
     private String colour;
     private String country;
-    private String fuelType;
+    protected FuelType fuelType;
     private String transmissionType;
     protected int seatingCapacity;
+    protected FuelType fuelTypeVariation;
 
 
-    public Car(String country, String colour, int maxSpeed, String fuelType,
+    public Car(String country, String colour, int maxSpeed, FuelType fuelType,
                String transmissionType, int seatingCapacity) {
         this.country = country;
         this.colour = colour;
@@ -20,6 +21,8 @@ public abstract class Car {
         this.transmissionType = transmissionType;
         this.seatingCapacity = seatingCapacity;
     }
+
+    public abstract void setFuelType(FuelType fuelTypeChange);
 
     public String getCountry() {
         return country;
@@ -42,16 +45,8 @@ public abstract class Car {
         }
     }
 
-    public String getFuelType() {
+    public FuelType getFuelType() {
         return fuelType;
-    }
-
-    public void setFuelType(String fuelTypeChange) {
-        if (fuelTypeChange.equals("petrol") || fuelTypeChange.equals("diesel")) {
-            this.fuelType = fuelTypeChange;
-        } else {
-            System.out.println("Wrong fuel type!");
-        }
     }
 
 
