@@ -5,7 +5,7 @@ public abstract class Car {
     public static final int MAX_SEATING_CAPACITY = 10;
     protected int maxSpeed;
     private String colour;
-    private String country;
+    private final String country;
     protected FuelType fuelType;
     private String transmissionType;
     protected int seatingCapacity;

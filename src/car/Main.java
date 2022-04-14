@@ -31,5 +31,7 @@ public class Main {
 
         fiat500.setFuelType(FuelType.DIESEL);
         System.out.println(fiat500.getFuelType());
+        aceBristol.setFuelType(FuelType.ETHANOL);
+        System.out.println(aceBristol.getFuelType());
     }
 }

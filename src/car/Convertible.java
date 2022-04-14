@@ -68,32 +68,12 @@ public class Convertible extends Car implements Movable {
     @Override
     public void setFuelType(FuelType fuelTypeChange) {
         this.fuelTypeVariation = fuelTypeChange;
-        super.fuelType = fuelTypeChange;
-        final String ANSWER = "The fuel type is: ";
         switch (fuelTypeVariation) {
-            case DIESEL -> {
-                System.out.println( ANSWER + "diesel");
-                break;
-            }
-            case BIO_DIESEL -> {
-                System.out.println(ANSWER + "bio-diesel");
-                break;
-            }
-            case GASOLINE -> {
-                System.out.println( ANSWER + "gasoline");
-                break;
-            }
-            case ETHANOL -> {
-                System.out.println(ANSWER + "ethanol");
-                break;
-            }
-            default -> {
-                System.out.println("Wrong fuel type!");
-                break;
-            }
+            case DIESEL, GASOLINE, ETHANOL, BIO_DIESEL -> super.fuelType = fuelTypeChange;
+            default -> System.out.println("Wrong fuel type!");
         }
-
     }
+
 
 }
 
