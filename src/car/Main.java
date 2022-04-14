@@ -4,10 +4,10 @@ public class Main {
     public static void main(String[] args) {
 
         Antique aceBristol = new Antique(" 23 March", 1955, "Germany",
-                "blue", 99, FuelType.DIESEL, "manual", 4);
+                Colour.BLUE, 99, FuelType.DIESEL, TransmissionType.MANUAL, 4);
 
-        Convertible fiat500 = new Convertible(333333, "Italy", "white", 249,
-                FuelType.BIO_DIESEL, "automatic", 249);
+        Convertible fiat500 = new Convertible(333333, "Italy", Colour.WHITE, 249,
+                FuelType.BIO_DIESEL, TransmissionType.AUTOMATIC, 249);
 
         Leopard leopard = new Leopard("Jack", 3, "leopard", 55);
 
@@ -30,6 +30,13 @@ public class Main {
         System.out.println("Leopard's max.speed: " + leopard.getMaxSpeed() + "km/h");
 
         fiat500.setFuelType(FuelType.DIESEL);
-        System.out.println(fiat500.getFuelType());
+        System.out.println("The fuel type: " + fiat500.getFuelType());
+        fiat500.setTransmissionType(TransmissionType.CVT);
+        System.out.println("The transmission type: " + fiat500.getTransmissionType());
+        fiat500.setColour(Colour.BROWN);
+        System.out.println("The colour of this car: " + fiat500.getColour());
+        aceBristol.setFuelType(FuelType.ETHANOL);
+        System.out.println("The fuel type: " + aceBristol.getFuelType());
+
     }
 }

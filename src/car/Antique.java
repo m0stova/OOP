@@ -2,14 +2,14 @@ package car;
 
 import java.util.Scanner;
 
-public class Antique extends Car implements Movable{
+public class Antique extends Car implements Movable {
     private static final int MAX_ALLOWED_SPEED = 110;
     private int year;
     private String date;
     private final Scanner scanner = new Scanner(System.in);
 
-    public Antique(String date, int year, String country, String colour, int maxSpeed, FuelType fuelType,
-                   String transmissionType, int seatingCapacity) {
+    public Antique(String date, int year, String country, Colour colour, int maxSpeed, FuelType fuelType,
+                   TransmissionType transmissionType, int seatingCapacity) {
         super(country, colour, maxSpeed, fuelType, transmissionType, seatingCapacity);
         this.year = year;
         this.date = date;
@@ -52,33 +52,20 @@ public class Antique extends Car implements Movable{
     @Override
     public void setFuelType(FuelType fuelTypeChange) {
         this.fuelTypeVariation = fuelTypeChange;
-        super.fuelType = fuelTypeChange;
-        final String ANSWER = "The fuel type is: ";
         switch (fuelTypeVariation) {
-            case DIESEL -> {
-                System.out.println( ANSWER + "diesel");
-                break;
-            }
-            case BIO_DIESEL -> {
-                System.out.println(ANSWER + "bio-diesel");
-                break;
-            }
-            case GASOLINE -> {
-                System.out.println( ANSWER + "gasoline");
-                break;
-            }
-            case ETHANOL -> {
-                System.out.println(ANSWER + "ethanol");
-                break;
-            }
-            default -> {
-                System.out.println("Wrong fuel type!");
-                break;
-            }
+            case DIESEL, GASOLINE, ETHANOL, BIO_DIESEL -> super.fuelType = fuelTypeChange;
+            default -> System.out.println("Wrong fuel type!");
         }
-
     }
 
+    @Override
+    public void setTransmissionType(TransmissionType transmissionTypeChange) {
+        this.transmissionTypeVariation = transmissionTypeChange;
+        switch (transmissionTypeVariation) {
+            case AUTOMATIC, CVT, MANUAL -> this.transmissionType = transmissionTypeChange;
+            default -> System.out.println("Wrong transmission type");
+        }
+    }
 
     public String whenWasThisMade(int year, String date) {
         this.year = year;
@@ -92,4 +79,12 @@ public class Antique extends Car implements Movable{
         return "This car was made in " + year + " on  " + date;
     }
 
+    @Override
+    public void setColour(Colour colourChange) {
+        this.colourVariation = colourChange;
+        switch (colourVariation) {
+            case RED, WHITE, BLUE, GRAY, PINK, BLACK, BROWN, GREEN, ORANGE, YELLOW -> this.colour = colourChange;
+            default -> System.out.println("Wrong colour!");
+        }
+    }
 }
